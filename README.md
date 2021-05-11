@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+## Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Please do not supply your name or email address in this document.We're doing our best to remain unbiased._
 
-## Available Scripts
+### Date
 
-In the project directory, you can run:
+The date you're submitting this.
 
-### `npm start`
+### Location of deployed application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If applicable, please provide the url where we can ﬁnd and interact with your running application.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Time spent
 
-### `npm test`
+Howmuch time did you spend on the assignment? Normally, this is expressed in hours.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Assumptionsmade
 
-### `npm run build`
+Use this section to tell us about any assumptions that youmade when creating your solution.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Shortcuts/Compromises made
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If applicable. Did you do something that you feel could have been done better in a real-world application? Please
+let us know.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Stretch goals attempted
 
-### `npm run eject`
+If applicable, use this area to tell us what stretch goals you attempted.What went well?What do you wish you
+could have done better? If you didn't attempt any of the stretch goals, feel free to let us know why.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Instructions to run assignment locally
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If applicable, please provide us with the necessary instructions to run your solution.
+###What did you not include in your solution that you want us to know about?
+Were you short on time and not able to include something that you want us to know
+about? Please list it here so that we know that you considered it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Other information about your submission that you feel it's important that we know if applicable.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Your feedback on this technical challenge
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Have feedback for how we couldmake this assignment better? Please let us know.
