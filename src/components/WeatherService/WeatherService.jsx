@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./WeatherService.scss";
 
 export class WeatherService extends Component {
   state = {
     inputCity: "",
+    temp: "",
+    feelsLike: "",
+    description: "",
+    icon: "",
+    timestamp: "",
   };
 
   handleChange = (e) => {
@@ -11,9 +17,16 @@ export class WeatherService extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  getWeather = (e) => {
+  getWeather = async (e) => {
     e.preventDefault();
-    console.log(`Get Weather for ${this.state.inputCity}`);
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+    const { inputCity } = this.state;
+
+    const weather = await axios.get(`${BACKEND_URL}weather?city=${inputCity}`);
+    const { temp, feels_like: feelsLike } = weather.data.data.main;
+    const { description, icon } = weather.data.data.weather[0];
+    const { dt: timestamp } = weather.data.data;
+    this.setState({ temp, feelsLike, description, icon, timestamp });
   };
 
   render() {
