@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./WeatherService.scss";
+import ErrorMessage from "./../ErrorMessage/ErrorMessage";
 import { kelvinToCelsius } from "./../../utils/tempConversion";
 
 export class WeatherService extends Component {
   state = {
     inputCity: "",
+    inputError: "",
     temp: "",
     feelsLike: "",
     description: "",
@@ -24,6 +26,12 @@ export class WeatherService extends Component {
     e.preventDefault();
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const { inputCity } = this.state;
+
+    // Ensure City field isn't left empty
+    if (inputCity === "") {
+      this.setState({ inputError: "Please Enter a City" });
+      return;
+    }
 
     // Get Weather from backend
     try {
@@ -44,14 +52,17 @@ export class WeatherService extends Component {
         icon,
         timestamp,
         weatherLoaded: true,
+        inputError: "",
       });
     } catch (err) {
       console.log(`💣 === ERROR GETTING WEATHER === 💣`, err);
+      this.setState({ inputError: "City Not Found" });
     }
   };
 
   render() {
-    const { name, temp, feelsLike, description, icon, timestamp } = this.state;
+    const { name, temp, feelsLike, description, icon, timestamp, inputError } =
+      this.state;
 
     return (
       <div className="weather-service">
@@ -72,6 +83,7 @@ export class WeatherService extends Component {
               Get Weather
             </button>
           </div>
+          {inputError && <ErrorMessage errorText={inputError} />}
         </form>
         {this.state.weatherLoaded && (
           <div className="weather-service__info">

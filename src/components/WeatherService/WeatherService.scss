@@ -25,6 +25,7 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
 
     &--cta {
       display: flex;
+      margin-bottom: 0.4rem;
     }
 
     &--label {
@@ -40,6 +41,9 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
       font-family: inherit;
       outline: none;
       margin-right: 2rem;
+    }
+
+    &--error {
     }
 
     &--button {
