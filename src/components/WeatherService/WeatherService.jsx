@@ -12,7 +12,6 @@ export class WeatherService extends Component {
     feelsLike: "",
     description: "",
     icon: "",
-    timestamp: "",
     name: "",
     weatherLoaded: false,
   };
@@ -42,7 +41,7 @@ export class WeatherService extends Component {
       // Extract Relevant Info
       const { temp, feels_like: feelsLike } = weather.data.data.main;
       const { description, icon } = weather.data.data.weather[0];
-      const { name, dt: timestamp } = weather.data.data;
+      const { name } = weather.data.data;
 
       this.setState({
         name,
@@ -50,7 +49,6 @@ export class WeatherService extends Component {
         feelsLike,
         description,
         icon,
-        timestamp,
         weatherLoaded: true,
         inputError: "",
       });
@@ -61,8 +59,7 @@ export class WeatherService extends Component {
   };
 
   render() {
-    const { name, temp, feelsLike, description, icon, timestamp, inputError } =
-      this.state;
+    const { name, temp, feelsLike, description, icon, inputError } = this.state;
 
     return (
       <div className="weather-service">
@@ -88,7 +85,6 @@ export class WeatherService extends Component {
         {this.state.weatherLoaded && (
           <div className="weather-service__info">
             <h2 className="weather-service__info--city">{`${name}`}</h2>
-
             <div className="weather-service__info-container">
               <h3 className="weather-service__info--temp">
                 {`${kelvinToCelsius(temp)}`}
