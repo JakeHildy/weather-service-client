@@ -5,12 +5,31 @@ import React, { Component } from "react";
 
 class App extends Component {
   state = { loggedIn: false };
+
+  componentDidMount() {
+    if (sessionStorage.getItem("token")) {
+      this.setState({ loggedIn: true });
+    }
+  }
+
+  login = () => {
+    this.setState({ loggedIn: true });
+  };
+
+  logout = () => {
+    this.setState({ loggedIn: false });
+  };
+
   render() {
     return (
       <div className="app">
         <h1 className="app__title">Thinkific Weather Service</h1>
         <h2 className="app__author">By Jacob Hildebrandt</h2>
-        {this.state.loggedIn ? <WeatherService /> : <Authenticate />}
+        {this.state.loggedIn ? (
+          <WeatherService />
+        ) : (
+          <Authenticate login={this.login} />
+        )}
       </div>
     );
   }

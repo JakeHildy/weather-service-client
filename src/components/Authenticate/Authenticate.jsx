@@ -19,15 +19,20 @@ export class Authenticate extends Component {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const { input } = this.state;
 
-    // Ensure Code field isn't left empty
+    // Ensure Access Phrase field isn't left empty
     if (input === "") {
-      this.setState({ inputError: "Please Enter code" });
+      this.setState({ inputError: "Please Enter Access Phrase" });
       return;
     }
 
     // Log into backend
     try {
-      const token = await axios.get(`${BACKEND_URL}login`);
+      const response = await axios.post(`${BACKEND_URL}login`, {
+        accessCode: this.state.input,
+      });
+      this.setState({ inputError: "" });
+      sessionStorage.setItem("token", response.data.token);
+      this.props.login();
     } catch (err) {
       console.log(`💣 === ERROR LOGGING IN === 💣`, err);
       this.setState({ inputError: "Incorrect Credentials (its 'thinkific')" });
