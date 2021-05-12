@@ -1,4 +1,5 @@
 import WeatherService from "./components/WeatherService/WeatherService";
+import "./App.scss";
 
 function App() {
   return (

@@ -1,9 +1,38 @@
 ///////////////////////////////
 // COLOURS
-$color-background: #f2f3f4;
+$color-background: #777c88;
 
 .weather-service {
   margin: 0 auto;
   width: 50vw;
   background-color: $color-background;
+  border-radius: 5px;
+
+  &__form {
+    &--label {
+    }
+
+    &--input {
+    }
+
+    &--button {
+    }
+  }
+
+  &__info {
+    &--city {
+    }
+
+    &--temp {
+    }
+
+    &--description {
+    }
+
+    &--feels-like {
+    }
+
+    &--icon {
+    }
+  }
 }

@@ -26,22 +26,28 @@ export class WeatherService extends Component {
     const { inputCity } = this.state;
 
     // Get Weather from backend
-    const weather = await axios.get(`${BACKEND_URL}weather?city=${inputCity}`);
+    try {
+      const weather = await axios.get(
+        `${BACKEND_URL}weather?city=${inputCity}`
+      );
 
-    // Extract Relevant Info
-    const { temp, feels_like: feelsLike } = weather.data.data.main;
-    const { description, icon } = weather.data.data.weather[0];
-    const { name, dt: timestamp } = weather.data.data;
+      // Extract Relevant Info
+      const { temp, feels_like: feelsLike } = weather.data.data.main;
+      const { description, icon } = weather.data.data.weather[0];
+      const { name, dt: timestamp } = weather.data.data;
 
-    this.setState({
-      name,
-      temp,
-      feelsLike,
-      description,
-      icon,
-      timestamp,
-      weatherLoaded: true,
-    });
+      this.setState({
+        name,
+        temp,
+        feelsLike,
+        description,
+        icon,
+        timestamp,
+        weatherLoaded: true,
+      });
+    } catch (err) {
+      console.log(`💣 === ERROR GETTING WEATHER === 💣`, err);
+    }
   };
 
   render() {
@@ -50,15 +56,18 @@ export class WeatherService extends Component {
     return (
       <div className="weather-service">
         <form onSubmit={this.getWeather} className="weather-service__form">
-          <label htmlFor="input-city">City</label>
+          <label className="weather-service__form--label" htmlFor="input-city">
+            City
+          </label>
           <input
+            className="weather-service__form--input"
             type="text"
             id="input-city"
             name="inputCity"
             placeholder="Enter City..."
             onChange={this.handleChange}
           />
-          <button className="weather-service__submit-button">Go!</button>
+          <button className="weather-service__form--button">Go!</button>
         </form>
         {this.state.weatherLoaded && (
           <div className="weather-service__info">
