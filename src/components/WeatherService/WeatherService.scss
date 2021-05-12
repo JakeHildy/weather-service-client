@@ -11,7 +11,7 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
 
 .weather-service {
   margin: 0 auto;
-  width: 50vw;
+  min-width: 37.5rem;
   background-color: $color-background;
   border-radius: 5px;
   padding: 1.6rem;
@@ -22,6 +22,10 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
     flex-direction: column;
     border-bottom: 1px solid $color-separator;
     padding-bottom: 1.6rem;
+
+    &--cta {
+      display: flex;
+    }
 
     &--label {
       font-size: 1.7rem;
@@ -46,6 +50,7 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
       cursor: pointer;
       font-family: inherit;
       transition: all 0.2s;
+      flex: 1;
 
       &:hover {
         background-color: darken($color-button, 5);
@@ -53,20 +58,48 @@ $shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
     }
   }
 
+  &__info-container {
+    display: flex;
+    align-items: flex-end;
+  }
+
   &__info {
+    padding: 1.6rem 0;
+
     &--city {
+      font-size: 2.6rem;
     }
 
     &--temp {
+      font-size: 6rem;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      margin-right: 1.6rem;
+    }
+
+    &--degrees {
+      font-size: 2.2rem;
+      font-weight: 600;
+      transform: translateY(-1rem);
+      margin-left: 0.4rem;
     }
 
     &--description {
+      font-size: 2rem;
     }
 
     &--feels-like {
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      width: 7rem;
+      transform: translateY(-0.8rem);
+      margin-right: 1.6rem;
     }
 
     &--icon {
+      transform: translateY(1.8rem);
     }
   }
 }

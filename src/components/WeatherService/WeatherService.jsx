@@ -68,24 +68,31 @@ export class WeatherService extends Component {
               placeholder="Enter City..."
               onChange={this.handleChange}
             />
-            <button className="weather-service__form--button">Go!</button>
+            <button className="weather-service__form--button">
+              Get Weather
+            </button>
           </div>
         </form>
         {this.state.weatherLoaded && (
           <div className="weather-service__info">
             <h2 className="weather-service__info--city">{`${name}`}</h2>
-            <h3 className="weather-service__info--temp">
-              {`${kelvinToCelsius(temp)}`}°C
-            </h3>
+
+            <div className="weather-service__info-container">
+              <h3 className="weather-service__info--temp">
+                {`${kelvinToCelsius(temp)}`}
+                <span className="weather-service__info--degrees">°C</span>
+              </h3>
+              <p className="weather-service__info--feels-like">
+                Feels Like {`${kelvinToCelsius(feelsLike)}`}
+              </p>
+              <img
+                src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                alt="clear sky"
+                className="weather-service__info--icon"
+              />
+            </div>
+
             <p className="weather-service__info--description">{`${description}`}</p>
-            <p className="weather-service__info--feels-like">
-              Feels Like {`${kelvinToCelsius(feelsLike)}`}
-            </p>
-            <img
-              src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-              alt="clear sky"
-              className="weather-service__info--icon"
-            />
           </div>
         )}
       </div>
