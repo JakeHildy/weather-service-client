@@ -100,7 +100,7 @@ export class WeatherService extends Component {
               </p>
               <img
                 src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-                alt="clear sky"
+                alt={`${description}`}
                 className="weather-service__info--icon"
               />
             </div>
