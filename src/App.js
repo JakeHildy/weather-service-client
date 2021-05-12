@@ -26,7 +26,7 @@ class App extends Component {
         <h1 className="app__title">Thinkific Weather Service</h1>
         <h2 className="app__author">By Jacob Hildebrandt</h2>
         {this.state.loggedIn ? (
-          <WeatherService />
+          <WeatherService logout={this.logout} />
         ) : (
           <Authenticate login={this.login} />
         )}

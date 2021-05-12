@@ -35,7 +35,12 @@ export class WeatherService extends Component {
     // Get Weather from backend
     try {
       const weather = await axios.get(
-        `${BACKEND_URL}weather?city=${inputCity}`
+        `${BACKEND_URL}weather?city=${inputCity}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
       );
 
       // Extract Relevant Info
