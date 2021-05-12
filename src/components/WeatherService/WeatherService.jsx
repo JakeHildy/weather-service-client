@@ -59,15 +59,17 @@ export class WeatherService extends Component {
           <label className="weather-service__form--label" htmlFor="input-city">
             City
           </label>
-          <input
-            className="weather-service__form--input"
-            type="text"
-            id="input-city"
-            name="inputCity"
-            placeholder="Enter City..."
-            onChange={this.handleChange}
-          />
-          <button className="weather-service__form--button">Go!</button>
+          <div className="weather-service__form--cta">
+            <input
+              className="weather-service__form--input"
+              type="text"
+              id="input-city"
+              name="inputCity"
+              placeholder="Enter City..."
+              onChange={this.handleChange}
+            />
+            <button className="weather-service__form--button">Go!</button>
+          </div>
         </form>
         {this.state.weatherLoaded && (
           <div className="weather-service__info">

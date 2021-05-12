@@ -1,21 +1,55 @@
 ///////////////////////////////
 // COLOURS
 $color-background: #777c88;
+$color-border: #e6aa67;
+$color-button: #9e9e9e;
+$color-separator: #9e9e9e;
+
+///////////////////////////////
+// SHADOWS
+$shadow: 0rem 0.2rem 1.5rem rgba(0, 0, 0, 0.5);
 
 .weather-service {
   margin: 0 auto;
   width: 50vw;
   background-color: $color-background;
   border-radius: 5px;
+  padding: 1.6rem;
+  box-shadow: $shadow;
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-separator;
+    padding-bottom: 1.6rem;
+
     &--label {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
     }
 
     &--input {
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      border: 2px solid $color-border;
+      font-family: inherit;
+      outline: none;
+      margin-right: 2rem;
     }
 
     &--button {
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      border: none;
+      background-color: $color-button;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: darken($color-button, 5);
+      }
     }
   }
 

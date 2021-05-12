@@ -3,8 +3,9 @@ import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Take Home Test</h1>
+    <div className="app">
+      <h1 className="app__title">Thinkific Weather Service</h1>
+      <h2 className="app__author">By Jacob Hildebrandt</h2>
       <WeatherService />
     </div>
   );
