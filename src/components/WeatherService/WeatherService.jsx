@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./WeatherService.scss";
+import { kelvinToCelsius } from "./../../utils/tempConversion";
 
 export class WeatherService extends Component {
   state = {
@@ -10,6 +11,8 @@ export class WeatherService extends Component {
     description: "",
     icon: "",
     timestamp: "",
+    name: "",
+    weatherLoaded: false,
   };
 
   handleChange = (e) => {
@@ -22,14 +25,28 @@ export class WeatherService extends Component {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const { inputCity } = this.state;
 
+    // Get Weather from backend
     const weather = await axios.get(`${BACKEND_URL}weather?city=${inputCity}`);
+
+    // Extract Relevant Info
     const { temp, feels_like: feelsLike } = weather.data.data.main;
     const { description, icon } = weather.data.data.weather[0];
-    const { dt: timestamp } = weather.data.data;
-    this.setState({ temp, feelsLike, description, icon, timestamp });
+    const { name, dt: timestamp } = weather.data.data;
+
+    this.setState({
+      name,
+      temp,
+      feelsLike,
+      description,
+      icon,
+      timestamp,
+      weatherLoaded: true,
+    });
   };
 
   render() {
+    const { name, temp, feelsLike, description, icon, timestamp } = this.state;
+
     return (
       <div className="weather-service">
         <form onSubmit={this.getWeather} className="weather-service__form">
@@ -43,17 +60,23 @@ export class WeatherService extends Component {
           />
           <button className="weather-service__submit-button">Go!</button>
         </form>
-        <div className="weather-service__info">
-          <h2 className="weather-service__info--city">Vancouver</h2>
-          <h3 className="weather-service__info--temp">11°C</h3>
-          <p className="weather-service__info--description">Light Rain</p>
-          <p className="weather-service__info--feels-like">Feels Like 10</p>
-          <img
-            src="http://openweathermap.org/img/wn/10d@2x.png"
-            alt="clear sky"
-            className="weather-service__info--icon"
-          />
-        </div>
+        {this.state.weatherLoaded && (
+          <div className="weather-service__info">
+            <h2 className="weather-service__info--city">{`${name}`}</h2>
+            <h3 className="weather-service__info--temp">
+              {`${kelvinToCelsius(temp)}`}°C
+            </h3>
+            <p className="weather-service__info--description">{`${description}`}</p>
+            <p className="weather-service__info--feels-like">
+              Feels Like {`${kelvinToCelsius(feelsLike)}`}
+            </p>
+            <img
+              src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+              alt="clear sky"
+              className="weather-service__info--icon"
+            />
+          </div>
+        )}
       </div>
     );
   }
